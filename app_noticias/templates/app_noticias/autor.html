@@ -1,4 +1,6 @@
 <h1>Notícias de: {{autor.nome}}</h1>
+<p>Porcentagem de notícias deste autor: {{ porcentagem|floatformat:1 }} %</p>
+<h3>Noticias:</h3>
 <ul>
     {% for noticia in noticias %}
     <li><a href="/noticias/{{noticia.id}}/">{{noticia.titulo}}</a></li>

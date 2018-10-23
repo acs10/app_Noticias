@@ -82,9 +82,11 @@ def autor_detalhes(request, id):
     try:
         pessoa = Pessoa.objects.get(pk=id)
         noticias = Noticia.objects.filter(autor=pessoa)
+        porcentagem = noticias.count()/Noticia.objects.count()*100
         return render(request, 'app_noticias/autor.html', {
             'autor': pessoa,
-            'noticias': noticias
+            'noticias': noticias,
+            'porcentagem': porcentagem
         })
     except Pessoa.DoesNotExist:
         return Http404('Este autor não foi encontrado')
